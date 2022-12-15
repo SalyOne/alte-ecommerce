@@ -1,0 +1,35 @@
+<div>
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{errorMessage}}
+  </div>
+  <form class="needs-validation" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email"
+             class="form-control"
+             id="email"
+             placeholder="Email"
+             formControlName="email"
+             required
+      >
+      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error">
+        Please fill your email.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password"
+             formControlName="password"
+      >
+      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="error">
+        Please fill Password.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div>
+    <a routerLink="/auth/register"> Register</a>
+  </div>
+</div>

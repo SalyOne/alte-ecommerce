@@ -1,0 +1,13 @@
+<div class="product-item" >
+<!--     [routerLink]="['/products', product.id]">-->
+  <div class="product-item__image">
+    <img [src]="product.image" >
+  </div>
+  <div>
+    <h3>{{product.title}}</h3>
+    <p>{{product.price | currency:'USD'}}</p>
+  </div>
+  <div>
+    <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>
