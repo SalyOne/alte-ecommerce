@@ -10,7 +10,7 @@ import {Observable, Subject, takeUntil} from "rxjs";
   styleUrls: ['./product-manager.component.scss']
 })
 export class ProductManagerComponent implements OnDestroy {
-  products$:Observable< IProduct[]> = this.productService.getProducts()
+  products$:Observable< IProduct[]> = this.productService.getData()
   sub$ = new Subject();
   constructor(
 
@@ -22,11 +22,11 @@ export class ProductManagerComponent implements OnDestroy {
         this.sub$.next(null);
         this.sub$.complete()
     }
-  deleteProduct(id : string) {
-    this.productService.delete(id)
+  deleteProduct(id : string | undefined) {
+   id && this.productService.delete(id)
       .pipe( takeUntil(this.sub$))
       .subscribe(()=>{
-        this.products$ =  this.productService.getProducts()
+        this.products$ =  this.productService.getData()
       })
   }
 }

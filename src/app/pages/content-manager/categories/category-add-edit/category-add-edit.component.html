@@ -1,1 +1,11 @@
-<p>category-add-edit works!</p>
+
+<div class="container m-3">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" placeholder="Title"
+             formControlName="title">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

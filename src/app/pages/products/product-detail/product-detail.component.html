@@ -1,0 +1,16 @@
+<div class="container mt-4 d-flex gap-4">
+  <div style="width: 277px">
+    <img [src]="product?.image" width="277px">
+  </div>
+  <div>
+    <h1>{{product?.title}}</h1>
+    <p>{{product?.description}}</p>
+    <p>{{product?.price | currency: 'USD'}}</p>
+    <div class="mt-4 d-flex">
+      <input type="number" [(ngModel)]="quantity"/>
+      <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+    </div>
+    <div *ngIf="errorQuantity" class="alert alert-danger">{{errorQuantity}}</div>
+  </div>
+</div>
+

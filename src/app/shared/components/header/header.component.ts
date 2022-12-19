@@ -17,9 +17,11 @@ export class HeaderComponent implements OnInit {
     this.getCartCount()
   }
   getCartCount(){
-    this.cartServ.carts$.subscribe(cart=>{
-      if(cart){
-        this.cartCount = cart.length
+    this.cartServ.carts$.subscribe(carts=>{
+      if(carts){
+        this.cartCount = carts.reduce((acc:any, item:any)=>{
+          return acc + item.quantity
+        },0)
       }
     })
   }

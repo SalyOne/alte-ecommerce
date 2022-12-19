@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  products$:Observable< IProduct[]> = this.productService.getProducts()
+  products$:Observable< IProduct[]> = this.productService.getData()
   sub$ = new Subject();
   constructor(
     private productService: ProductsService,

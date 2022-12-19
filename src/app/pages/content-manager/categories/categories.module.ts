@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories.component';
 import { CategoryAddEditComponent } from './category-add-edit/category-add-edit.component';
 import {RouterModule, Routes} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const categoryRoutes: Routes = [
   {
@@ -26,7 +27,8 @@ const categoryRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(categoryRoutes)
+    RouterModule.forChild(categoryRoutes),
+    ReactiveFormsModule
   ]
 })
 export class CategoriesModule { }
